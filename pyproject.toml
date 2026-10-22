@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "optigram"
+version = "0.1.0"
+description = "Extract transportation network graphs from diagrams and solve them with Network Simplex"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Abhay Soni", email = "abhaysoni.ai01@gmail.com" }]
+
+# Core dependencies: lower bounds only. Exact pins go in requirements.txt.
+dependencies = [
+    "numpy>=1.24",
+    "opencv-python>=4.8",
+    "pillow>=10.0",
+    "matplotlib>=3.7",     # generator rendering
+    "networkx>=3.1",       # graph sampling and layouts
+    "scipy>=1.10",         # Hungarian matching (linear_sum_assignment)
+    "pyyaml>=6.0",         # configs
+    "pydantic>=2.5",       # graph schema validation
+    "ultralytics>=8.3",    # YOLO (installs torch)
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+# Text recognizer is chosen in Phase 1; its packages get added here then.
+ocr = []
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+    "jupyter>=1.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["optigram*"]          # legacy/ is not part of the package
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

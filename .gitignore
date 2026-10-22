@@ -1,0 +1,50 @@
+# ── Python ────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# ── Environments ──────────────────────────────────────
+.venv/
+venv/
+env/
+.env
+
+# ── Editors / OS ──────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ── Notebooks ─────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Datasets (regenerated from config + seed) ─────────
+data/
+datasets/
+dataset_*/
+
+# ── Training runs and logs ────────────────────────────
+runs/
+wandb/
+lightning_logs/
+
+# ── Model weights (stored outside git) ────────────────
+*.pt
+*.pth
+*.onnx
+*.engine
+*.ckpt
+*.safetensors
+
+# ── Outputs and debug files ───────────────────────────
+outputs/
+debug_crops/
+*.log
+
+# ── Archives ──────────────────────────────────────────
+*.zip
+*.tar
+*.tar.gz
